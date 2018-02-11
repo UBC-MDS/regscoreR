@@ -11,7 +11,7 @@ A project by:
 
 ### Problem
 
-Currently, in R ecosystems, there is no single package that provides easy calculation for AIC, BIC, Mallow's $C_p$, and a united table summary of scores for all models that users can refer to to compare and choose the best model. This leads to manual mathematical calculation, lengthy codes or usage of several packages to obtain one task, which is inefficient.
+Currently, in R ecosystems, there is no single package that provides easy calculation for AIC, BIC, Mallow's C_p, and a united table summary of scores for all models that users can refer to to compare and choose the best model. This leads to manual mathematical calculation, lengthy codes or usage of several packages to obtain one task, which is inefficient.
 
 ### Solution
 
@@ -24,16 +24,20 @@ Acknowledging this problem, we want to build a united package which provides use
 - Mean absolute percentage error
 - AIC
 - BIC
-- Mallow's $C_p$
+- Mallow's C_p
 
-In addition to all model comparison score functions, we want to have a function to output a summary table that combines scores for all models users want to compare. This table helps users avoid scrolling through lines of output or call score outputs with additional code to get all scores. This table of comparison is not recommended to be used if users want to compare models with different methods (e.g. linear regression, logistic regression, GLM)
+In addition to all model comparison score functions, we want to have a function to output a summary table that combines scores for all models users want to compare. This table helps users avoid scrolling through lines of output or call score outputs with additional code to get all scores. This table of comparison is not recommended to be used if users want to compare models with different methods (e.g. linear regression, logistic regression)
 
 ### How solution fits to R ecosystem
 
-`finish_glance`  function from broom package
-    https://www.rdocumentation.org/packages/broom/versions/0.4.2/topics/finish_glance
+[`broom`](https://www.rdocumentation.org/packages/broom/versions/0.4.2/topics/finish_glance) package has a function `finish_glance` that outputs some of regression metrics in a table:
+* Log likelihoods
+* AIC
+* BIC
+* Deviance
+* Residual degrees of freedom
 
-Thus, our package can be a united source for all popular regression model comparison metrics.
+Although this function provides a table with some of the key metrics that we want to include in our package (AIC, BIC), it lacks of other metrics such as MSE and Mallow's C_p. Additionally, `finish_glance`'s output table only include metrics for 1 model which might not be as easy to compare metrics of all models as out intended output table of comparison. That being said, our package can solve this problem, and be a united source for all popular regression model comparison metrics. 
 
 ## **Timeline**
 
