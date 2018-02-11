@@ -49,8 +49,9 @@ Each group member is responsible to be:
 #### Commit message
 - Big changes:
   
-  ```
+```
 $ git commit -m "A brief summary of the commit
+>
 > A paragraph describing what changed and its impact."
 ```
 
