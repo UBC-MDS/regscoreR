@@ -50,7 +50,7 @@ Each group member is responsible to be:
 #### Commit message
 - Big changes:
   
-  ```
+```
  git commit -m "A brief summary of the commit
 
  A paragraph describing what changed and its impact."
@@ -59,7 +59,7 @@ Each group member is responsible to be:
 -  Small changes:
    - 1-line detailed message including what change you made.
 
-   ```
+```
 git commit -m "Concise summary of what you did here"
 ```
 
