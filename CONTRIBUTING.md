@@ -51,7 +51,6 @@ Each group member is responsible to be:
   
   ```
 $ git commit -m "A brief summary of the commit
-> 
 > A paragraph describing what changed and its impact."
 ```
 
