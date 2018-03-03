@@ -6,7 +6,7 @@ context("Testing mallows")
 # mallows
 test_that("mallows() returns Mallow's Cp of the model", {
   # expected outputs:
-  expect_equal(round(mallow(c(1,2,3,4),c(5,6,7,8),c(1,2,3,5),3,2),2), 0.016)
+  expect_equal(round(mallow(c(1,2,3,4),c(5,6,7,8),c(1,2,3,5),3,2),2), 0.02)
   expect_equal(round(mallow(c(0, 1, 1.1, -6), c(1, 0, 0.9, -6),c(1,0.8,0,-3.3),3,2), 2), 4.68)
 })
 
