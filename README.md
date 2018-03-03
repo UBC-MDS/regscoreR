@@ -16,6 +16,7 @@ AIC = n*log(residual sum of squares/n) + 2K
 ```
 
 where:
+
 - n: number of observations
 - K: number of parameters (including intercept)
 
@@ -52,6 +53,7 @@ BIC = n*log(residual sum of squares/n) + K*log(n)
 ```
 
 where:
+
 - n: number of observations
 - K: number of parameters (including intercept)
 
@@ -85,6 +87,7 @@ C_p = (SSE_p/MSE) - (n - 2p)
 ```
 
 where:
+
 - SSE_k: residual sum of squares for the subset model containing `p` explanatory
 variables counting the intercept.
 - MSE: mean squared error for the full model (model containing all `k` explanatory variables of interest)
@@ -98,6 +101,8 @@ mallow(y, y_pred, y_sub, k, p)
 ```
 
 **Parameters:**
+
+
 * **y**: array-like of shape = (n_samples) or (n_samples, n_outputs)
   * True target variable(s)
 
@@ -107,11 +112,31 @@ mallow(y, y_pred, y_sub, k, p)
 * **y_sub**: array-like of shape = (n_samples) or (n_samples, n_outputs)
   * Fitted target variable(s) obtained from your subset regression model
 
-* **p**: int
+* **k**: int
   * Number of predictive variable(s) used in the model
 
-* **k**: int
+* **p**: int
   * Number of predictive variable(s) used in the subset model
+
+**Return:**
+
+* mallow_score: int
+  * Mallow's C_p score of the subset model
+
+
+### Table of comparison
+
+#### Function
+
+```
+comparison_model(model)
+```
+
+**Parameters:**
+
+* **model**: str
+  * Models to compare, separate by `,`
+
 
 **Return:**
 * mallow_score: int
