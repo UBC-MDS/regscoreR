@@ -2,54 +2,8 @@
 
 An R package that does model comparison between different regression models.
 
-A project by:
-- Ha Dinh @hadinh1306
-- Simran Sethi @simrnsethi
-- Ruoqi Xu @rq1995
-
-## **Overview**
-
-### Problem
-
-Currently, in R ecosystems, there is no single package that provides easy calculation for AIC, BIC, Mallow's C_p, and a united table summary of scores for all models that users can refer to to compare and choose the best model. This leads to manual mathematical calculation, lengthy codes or usage of several packages to obtain one task, which is inefficient.
-
-### Solution
-
-Acknowledging this problem, we want to build a united package which provides users instant computation for various model comparison metrics such as:
-
-- Mean Square error
-- Root mean square error
-- Mean absolute error
-- Mean Percentage error
-- Mean absolute percentage error
-- AIC
-- BIC
-- Mallow's C_p
-
-In addition to all model comparison score functions, we want to have a function to output a summary table that combines scores for all models users want to compare. This table helps users avoid scrolling through lines of output or call score outputs with additional code to get all scores. This table of comparison is not recommended to be used if users want to compare models with different methods (e.g. linear regression, logistic regression)
-
-### How solution fits to R ecosystem
-
-[`broom`](https://www.rdocumentation.org/packages/broom/versions/0.4.2/topics/finish_glance) package has a function `finish_glance` that outputs some of regression metrics in a table:
-* Log likelihoods
-* AIC
-* BIC
-* Deviance
-* Residual degrees of freedom
-
-Although this function provides a table with some of the key metrics that we want to include in our package (AIC, BIC), it lacks of other metrics such as MSE and Mallow's C_p. Additionally, `finish_glance`'s output table only include metrics for 1 model which might not be as easy to compare metrics of all models as out intended output table of comparison. That being said, our package can solve this problem, and be a united source for all popular regression model comparison metrics.
-
-## **Timeline**
-
-**Phase I**: 02/05/2018 - 03/11/2018, develop functions to compute AIC, BIC, Mallow's $C_p$ and table output that include all scores for model comparison.
-
-** **Phase II**: From late March, develop other functions to finish the package.
-
-* ** Tentative, and will be updated later
-
 ## **Function Description**
 
-Here, we will describe functions in *Phase I*. We will also add a documentation for all functions later.
 
 ### AIC
 
@@ -68,27 +22,23 @@ where:
 #### Function
 
 ```
-aic(x, y, n, k, model = 'linear')
+aic(y, y_pred, p)
 ```
 
 **Parameters:**
-* **x**: array (n_samples, n_features)
-  * Predictive variable(s)
 
-* **y**: array (n_samples, n_targets)
-  * Target variable(s)
+* **y**: array-like of shape = (n_samples) or (n_samples, n_outputs)
+  * True target variable(s)
 
-* **n**: int
-  * Number of observations
+* **y_pred**: array-like of shape = (n_samples) or (n_samples, n_outputs)
+  * Fitted target variable(s) obtained from your regression model
 
-* **k**: int
+* **p**: int
   * Number of predictive variable(s) used in the model
 
-* **model**: default 'linear' | 'logistic' | 'ridge' | 'lasso' | 'elasticnet'
-  * Method applied to the model
-
 **Return:**
-* AIC score of the model: int
+* aic_score: int
+  * AIC score of the model
 
 
 ### BIC
@@ -108,26 +58,21 @@ where:
 #### Function
 
 ```
-bic(x, y, n, k, model = 'linear')
+bic(y, y_pred, p)
 ```
 **Parameters:**
-* **x**: array (n_samples, n_features)
-  * Predictive variable(s)
+* **y**: array-like of shape = (n_samples) or (n_samples, n_outputs)
+  * True target variable(s)
 
-* **y**: array (n_samples, n_targets)
-  * Target variable(s)
+* **y_pred**: array-like of shape = (n_samples) or (n_samples, n_outputs)
+  * Fitted target variable(s) obtained from your regression model
 
-* **n**: int
-  * Number of observations
-
-* **k**: int
+* **p**: int
   * Number of predictive variable(s) used in the model
 
-* **model**: default 'linear' | 'logistic' | 'ridge' | 'lasso' | 'elasticnet'
-  * Method applied to the model
-
 **Return:**
-* BIC score of the model: int
+* bic_score: int
+  * BIC score of the model
 
 ### Mallow's C_p
 
@@ -149,51 +94,22 @@ variables counting the intercept.
 #### Function
 
 ```
-mallow(X, x_subset, y, n, p, k, model = 'linear')
+mallow(y, y_pred, p, k)
 ```
 
 **Parameters:**
-* **X**: array (n_samples, n_features)
-  * Predictive variable(s)
+* **y**: array-like of shape = (n_samples) or (n_samples, n_outputs)
+  * True target variable(s)
 
-* **x_subset**: array (n_samples, n_features)
-  * Predictive variable(s) in the subset model
-
-* **y**: array (n_samples, n_targets)
-  * Target variable(s)
-
-* **n**: int
-  * Number of observations
+* **y_pred**: array-like of shape = (n_samples) or (n_samples, n_outputs)
+  * Fitted target variable(s) obtained from your regression model
 
 * **p**: int
-  * Number of predictive variable(s) used in the subset model
-
-* **k**: int
   * Number of predictive variable(s) used in the model
 
-* **model**: default 'linear' | 'logistic' | 'ridge' | 'lasso' | 'elasticnet'
-  * Method applied to the model
+* **k**: int
+  * Number of predictive variable(s) used in the subset model
 
 **Return:**
-* Mallow's C_p score of the subset model: int
-
-
-### Table of comparison
-
-#### Function
-
-```
-comparison_model(model)
-```
-
-**Parameters:**
-* **model**: str
-  * Models to compare, separate by `,`
-
-**Return:**
-* A table with model names and their scores. Demo:
-
-| Model  | AIC | BIC | Mallow's C_p |
-|--------|-----|-----|--------------|
-| Model1 | 123 | 145 | 156          |
-| Model2 | 145 | 134 | 167          |
+* mallow_score: int
+  * Mallow's C_p score of the subset model
