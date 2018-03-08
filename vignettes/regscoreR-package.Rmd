@@ -1,0 +1,68 @@
+---
+title: "Introduction to regscoreR"
+author: "Ha Dinh, Simran Sethi, Ruoqi Xu"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# **AIC** 
+## Function
+
+```
+```
+
+---description here---
+
+## Example
+
+---add code and show result (this is Rmd file)--- 
+
+
+# **BIC** 
+## Function
+
+```
+```
+
+---description here---
+
+## Example
+
+---add code and show result (this is Rmd file)--- 
+
+
+# **Mallow's C_p**
+## Function
+
+```
+```
+
+---description here---
+
+## Example
+
+---add code and show result (this is Rmd file)--- 
+
+
+# **Comparisons** 
+
+[`broom`](https://www.rdocumentation.org/packages/broom/versions/0.4.2/topics/finish_glance) package has a function `finish_glance` that outputs some of regression metrics in a table:
+* Log likelihoods
+* AIC
+* BIC
+* Deviance
+* Residual degrees of freedom
+
+Although this function provides a table with some of the key metrics that we want to include in our package (AIC, BIC), it lacks of other metrics such as MSE and Mallow's C_p. Additionally, `finish_glance`'s output table only include metrics for 1 model which might not be as easy to compare metrics of all models as out intended output table of comparison. That being said, our package can solve this problem, and be a united source for all popular regression model comparison metrics.
+
