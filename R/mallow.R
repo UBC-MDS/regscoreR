@@ -37,7 +37,10 @@ mallow <- function(y,y_pred,y_sub,k,p) {
     stop("Error: The number of predictive variable(s) used in the sub model must less than in whole model")
   }
   if(length(y)!=length(y_pred) || length(y_pred)!=length(y_sub)){
-    stop("Error: The number of predictive variable(s) used in the sub model must less than in whole model")
+    stop("Error: The length of y, predict y and predict y in subset model must equal.")
+  }
+  if(length(y)<2 || length(y_pred)<2 ||length(y_sub)<2){
+    stop("Error: The length of y, predict y and predict y in subset model must larger than 1")
   }
   if(!is.integer(k) || !is.integer(p)){
     stop("Error: The number of predictive variable(s) used in the sub model must be integer")
