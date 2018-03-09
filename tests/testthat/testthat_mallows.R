@@ -23,5 +23,6 @@ test_that("Error message occurs when input is not correct format",{
   expect_error(mallow(c(1,2), c(1,2,3),c(1,2),3L, 2L)) #check if y, and y_pred have same length
   expect_error(mallow(c(1,2), c(1,2),c(1,2,3),3L, 2L)) #check if y, and y_sub have same length
   expect_error(mallow(c(1),c(3),c(2),3L, 2L)) #check if the length of y, y_sub, and y_pred is 1
-
+  expect_error(mallow(c(),c(1,2,3,4),c(4,5,6,7), 3L, 2L)) #check if the y is empty
+  expect_error(mallow(c(1,2,3,4),c(),c(4,5,6,7), 3L, 2L)) #check if the y_pred is empty
 })
