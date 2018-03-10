@@ -53,16 +53,16 @@ aic <- function(y, y_pred, p) {
   ## - should be an integer
   ## - should be positive
   if (typeof(p) != "double") {
-    stop("Expect positive integer")
+    stop("Expect positive integer for p")
   } else if (p%%1 != 0) {
-    stop("Expect positive integer ")
+    stop("Expect positive integer for p")
   } else if (p <= 0) {
-    stop("Expect positive integer")
+    stop("Expect positive integer for p")
   }
 
   # Calculation
   resid <- y_pred - y
-  rss <- resid^2
+  rss <- sum(resid^2)
   aic_score <- n*log(rss/n) + 2*p
 
   return(aic_score)
