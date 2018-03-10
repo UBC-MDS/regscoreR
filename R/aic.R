@@ -30,4 +30,34 @@
 #' p <- 3
 #' aic(y, y_pred, p)
 
+library(tidyverse)
 
+aic <- function(y, y_pred, p) {
+  # Check conditions:
+  ## Condition 1: y and y_pred should be array-like containing numbers with length larger than 1
+
+  if (length(y) <= 1 | length(y_pred) <= 1) {
+    stop("Expect length of y and y_pred larger than 1")
+  } else if (typeof(y) != "double" | typeof(y_pred) != "double") {
+    stop("Expect numeric elements in y and y_pred")
+  } else {
+    n <- length(y)
+  }
+
+  ## Condition 2: p should be positive integer
+  ### check if p is integer
+
+  ### check if p is positive
+
+  ## Length condition: length of y and y_pred should be equal, and should be more than 1
+  ### check if y and y_pred have equal length
+
+
+
+  # Calculation
+  resid <- y_pred - y
+  rss <- resid^2
+  aic_score <- n*log(rss/n) + 2*p
+
+  return(aic_score)
+}
