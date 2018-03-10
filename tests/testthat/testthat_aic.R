@@ -1,4 +1,5 @@
 # add tests for AIC
+library(testthat)
 
 context("Test aic")
 
@@ -11,36 +12,36 @@ test_that("aic() returns an aic score of a specific model, given observed y, pre
 
   # expect_errors:
   ## test if y and y_pred have same length, if not yield error
-  expect_error(aic(c(1,2,3,4), c(4,5,6,7,8), 3), "y and y_pred have different length")
+  expect_error(aic(c(1,2,3,4), c(4,5,6,7,8), 3), "Expect y and y_pred to have equal length")
 
   ## test if length of y is larger than 1, if not yield error
-  expect_error(aic(c(), c(5,6,7,8), 3), "y should have length > 1 with equal length to y_pred")
-  expect_error(aic(c(2), c(5,6,7,8), 3), "y should have length > 1 with equal length to y_pred")
+  expect_error(aic(c(), c(5,6,7,8), 3), "Expect length of larger than 1")
+  expect_error(aic(c(2), c(5,6,7,8), 3), "Expect length of y larger than 1")
 
   ## test if length of y_pred is larger than 1, if not yield error
-  expect_error(aic(c(1,2,3,4), c(3), 3), "y_pred should have length > 1 with equal length to y")
-  expect_error(aic(c(1,2,3,4), c(), 3), "y_pred should have length > 1 with equal length to y")
+  expect_error(aic(c(1,2,3,4), c(3), 3), "Expect length of y_pred larger than 1")
+  expect_error(aic(c(1,2,3,4), c(), 3), "Expect length of y_pred larger than 1")
 
   ## test if y is a vector or array-like type including numbers, if not yield error
-  expect_error(aic(as.data.frame(c(1,2,3,4)), c(5,6,7,8), 3), "y should be vector")
-  expect_error(aic(2, c(5,6,7,8), 3), "y should be vector")
-  expect_error(aic(c("a","b","c","d"), c(5,6,7,8), 3), "y should be vector")
-  expect_error(aic("a", c(5,6,7,8), 3), "y should be vector")
+  expect_error(aic(as.data.frame(c(1,2,3,4)), c(5,6,7,8), 3), "Expect y to be vector-alike with numeric elements")
+  expect_error(aic(2, c(5,6,7,8), 3), "Expect y to be vector-alike with numeric elements")
+  expect_error(aic(c("a","b","c","d"), c(5,6,7,8), 3), "Expect y to be vector-alike with numeric elements")
+  expect_error(aic("a", c(5,6,7,8), 3), "Expect y to be vector-alike with numeric elements")
 
   ## test if y_pred is a vector or array-like type including numbers, if not yield error
-  expect_error(aic(c(1,2,3,4), as.data.frame(c(5,6,7,8)), 3), "y_pred should be vector")
-  expect_error(aic(c(1,2,3,4), 2, 3), "y_pred should be vector")
-  expect_error(aic(c(1,2,3,4), c("a","b","c","d"), 3), "y_pred should be vector")
-  expect_error(aic(c(1,2,3,4), "a", 3), "y_pred should be vector")
+  expect_error(aic(c(1,2,3,4), as.data.frame(c(5,6,7,8)), 3), "Expect y_pred to be vector-alike with numeric elements")
+  expect_error(aic(c(1,2,3,4), 2, 3), "Expect y_pred to be vector-alike with numeric elements")
+  expect_error(aic(c(1,2,3,4), c("a","b","c","d"), 3), "Expect y_pred to be vector-alike with numeric elements")
+  expect_error(aic(c(1,2,3,4), "a", 3), "Expect y_pred to be vector-alike with numeric elements")
 
   ## test if p is int, if not yield error
-  expect_error(aic(c(1,2,3,4), c(5,6,7,8), "a"), "non-numeric argument")
-  expect_error(aic(c(1,2,3,4), c(5,6,7,8), c(2,0,0,0)), "non-numeric argument")
-  expect_error(aic(c(1,2,3,4), c(5,6,7,8), 4.75), "non-numeric argument")
+  expect_error(aic(c(1,2,3,4), c(5,6,7,8), "a"), "Expect positive integer for p")
+  expect_error(aic(c(1,2,3,4), c(5,6,7,8), c(2,0,0,0)), "Expect positive integer for p")
+  expect_error(aic(c(1,2,3,4), c(5,6,7,8), 4.75), "Expect positive integer for p")
 
   ## test if p is larger than 0, if not yield error
-  expect_error(aic(c(1,2,3,4), c(5,6,7,8), 0, "p should be positive"))
-  expect_error(aic(c(1,2,3,4), c(5,6,7,8), -5, "p should be positive"))
+  expect_error(aic(c(1,2,3,4), c(5,6,7,8), 0, "Expect positive integer for p"))
+  expect_error(aic(c(1,2,3,4), c(5,6,7,8), -5, "Expect positive integer for p"))
 })
 
 
