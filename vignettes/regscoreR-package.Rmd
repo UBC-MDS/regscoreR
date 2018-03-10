@@ -55,8 +55,12 @@ aic(y, y_pred, p)
 
 ## Example
 
----add code and show result (this is Rmd file)--- 
-
+```
+y <-  c(1,2,3,4)
+y_pred <- c(5,6,7,8)
+p <- 3
+aic(y, y_pred, p)
+```
 
 # **BIC** 
 ## Function
