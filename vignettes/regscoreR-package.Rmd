@@ -17,12 +17,41 @@ knitr::opts_chunk$set(
 ```
 
 # **AIC** 
-## Function
+
+**Introduction**
+
+AIC stands for Akaike’s Information Criterion. It estimates the quality of a model, relative to each of other models. The lower AIC score is, the better the model is. Therefore, a model with lowest AIC - in comparison to others, is chosen.
 
 ```
+AIC = n*log(residual sum of squares/n) + 2K
 ```
 
----description here---
+where:
+
+* n: number of observations
+* K: number of parameters (including intercept)
+
+**Function**
+
+```
+aic(y, y_pred, p)
+```
+
+**Parameters:**
+
+* y: array-like of shape = (n_samples) or (n_samples, n_outputs)
+  * True target variable(s)
+
+* y_pred: array-like of shape = (n_samples) or (n_samples, n_outputs)
+  * Fitted target variable(s) obtained from your regression model
+
+* p: int
+  * Number of predictive variable(s) used in the model
+
+**Return:**
+
+* aic_score: int
+  * AIC score of the model
 
 ## Example
 
