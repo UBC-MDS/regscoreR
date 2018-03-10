@@ -39,11 +39,19 @@ aic <- function(y, y_pred, p) {
   ## - have equal length
   ## - contain numeric values
 
-  if (typeof(y) != "double" | typeof(y) != "list" | typeof(y_pred) != "double" | typeof(y_pred) != "list") {
-    stop("Expect y and y_pred to be vector-alike with numeric elements")
-  } else if (length(y) <= 1 | length(y_pred) <= 1) {
+  if (typeof(y) != "double" | typeof(y) != "list") {
+    stop("Expect y to be vector-alike with numeric elements")
+  } else if (length(y) <= 1) {
+    stop("Expect length of y larger than 1")
+  }
+
+  if (typeof(y_pred) != "double" | typeof(y_pred) != "list") {
+    stop("Expect y_pred to be vector-alike with numeric elements")
+  } else if (length(y_pred) <= 1) {
     stop("Expect length of y and y_pred larger than 1")
-  } else if (length(y) != length(y_pred)) {
+  }
+
+  if (length(y) != length(y_pred)) {
     stop("Expect y and y_pred to have equal length")
   } else {
     n <- length(y)
