@@ -52,13 +52,13 @@ aic <- function(y, y_pred, p) {
   ## Conditions for p:
   ## - should be an integer
   ## - should be positive
-
-
-
-  ## Length condition: length of y and y_pred should be equal, and should be more than 1
-
-
-
+  if (typeof(p) != "double") {
+    stop("Expect positive integer")
+  } else if (p%%1 != 0) {
+    stop("Expect positive integer ")
+  } else if (p <= 0) {
+    stop("Expect positive integer")
+  }
 
   # Calculation
   resid <- y_pred - y
