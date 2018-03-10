@@ -22,10 +22,56 @@
 #' - n: number of observations
 #' - K: number of parameters (including intercept)
 #'
-#' @return float
+#' @return double
 #'
 #' @examples
 #' y <-c(1,2,3,4)
 #' y_pred <- c(5,6,7,8)
 #' p <- 3
 #' aic(y, y_pred, p)
+
+library(tidyverse)
+
+aic <- function(y, y_pred, p) {
+  # Check conditions:
+  ## Conditions for y and y_pred:
+  ## - should be array-like with length larger than 1
+  ## - have equal length
+  ## - contain numeric values
+
+  if (typeof(y) != "double" | typeof(y) != "list") {
+    stop("Expect y to be vector-alike with numeric elements")
+  } else if (length(y) <= 1) {
+    stop("Expect length of y larger than 1")
+  }
+
+  if (typeof(y_pred) != "double" | typeof(y_pred) != "list") {
+    stop("Expect y_pred to be vector-alike with numeric elements")
+  } else if (length(y_pred) <= 1) {
+    stop("Expect length of y and y_pred larger than 1")
+  }
+
+  if (length(y) != length(y_pred)) {
+    stop("Expect y and y_pred to have equal length")
+  } else {
+    n <- length(y)
+  }
+
+  ## Conditions for p:
+  ## - should be an integer
+  ## - should be positive
+  if (typeof(p) != "double") {
+    stop("Expect positive integer for p")
+  } else if (p%%1 != 0) {
+    stop("Expect positive integer for p")
+  } else if (p <= 0) {
+    stop("Expect positive integer for p")
+  }
+
+  # Calculation
+  resid <- y_pred - y
+  rss <- sum(resid^2)
+  aic_score <- n*log(rss/n) + 2*p
+
+  return(aic_score)
+}
