@@ -22,7 +22,7 @@
 #' - n: number of observations
 #' - K: number of parameters (including intercept)
 #'
-#' @return float
+#' @return double
 #'
 #' @examples
 #' y <-c(1,2,3,4)
