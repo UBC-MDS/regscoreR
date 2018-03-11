@@ -36,18 +36,21 @@ aic <- function(y, y_pred, p) {
   # Check conditions:
   ## Conditions for y and y_pred:
   ## - should be array-like with length larger than 1
-  ## - have equal length
   ## - contain numeric values
+  ## - have equal length
 
-  if (typeof(y) != "double" | typeof(y) != "list") {
-    stop("Expect y to be vector-alike with numeric elements")
-  } else if (length(y) <= 1) {
-    stop("Expect length of y larger than 1")
+  if (!is.vector(y) || !is.vector(y_pred)) {
+    stop("Expect y and y_pred to be vector-alike with numeric elements")
   }
 
-  if (typeof(y_pred) != "double" | typeof(y_pred) != "list") {
-    stop("Expect y_pred to be vector-alike with numeric elements")
-  } else if (length(y_pred) <= 1) {
+  for (i in y) {
+    for (j in y_pred) {
+      if (typeof(i) != "double" || typeof(j) != "double")
+        stop("Expect y and y_pred to be vector-alike with numeric elements")
+    }
+  }
+
+  if (length(y) <= 1 || length(y_pred) <= 1) {
     stop("Expect length of y and y_pred larger than 1")
   }
 
@@ -60,12 +63,13 @@ aic <- function(y, y_pred, p) {
   ## Conditions for p:
   ## - should be an integer
   ## - should be positive
+
   if (typeof(p) != "double") {
-    stop("Expect positive integer for p")
+    stop("Expect numeric value for p")
   } else if (p%%1 != 0) {
-    stop("Expect positive integer for p")
+    stop("Expect p to be integer")
   } else if (p <= 0) {
-    stop("Expect positive integer for p")
+    stop("Expect p to be positive")
   }
 
   # Calculation
