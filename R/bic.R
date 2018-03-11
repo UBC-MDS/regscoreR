@@ -23,6 +23,8 @@
 
 # library dependencies
 library(tidyverse)
+library(dplyr)
+library(tidyr)
 
 bic <- function(y, y_pred, p){
   
@@ -44,6 +46,8 @@ bic <- function(y, y_pred, p){
     if(!is.double(i)) stop("Error: Elements of argument 2 must be double")
   }
   
+  if(is.vector(p)) stop("Error: Number of variables must be a double")
+  
   if(!is.double(p)) stop("Error: Number of variables must be a double")
   
   if(!(p%%1==0)) stop("Error: Number of variables must be a positive integer")
@@ -52,7 +56,7 @@ bic <- function(y, y_pred, p){
   
   if(length(y) <= 1) stop("Error: length of argument 1 cannot be less than or equal to 1")
   
-  if(length(y_pred) <= 1) stop("Error: Length of argument 2 cannot be less than or eqaul to 1")
+  if(length(y_pred) <= 1) stop("Error: Length of argument 2 cannot be less than or equal to 1")
   
   ################## length of input vectors exceptions ##################
   
