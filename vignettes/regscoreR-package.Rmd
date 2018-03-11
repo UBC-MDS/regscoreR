@@ -63,16 +63,52 @@ aic(y, y_pred, p)
 ```
 
 # **BIC** 
+
+**Introduction:**
+
+BIC stands for Bayesian Information Criterion. Like AIC, it also estimates the quality of a model. When fitting models, it is possible to increase model fitness by adding more parameters. Doing this may results in model overfit. Both AIC and BIC helps to resolve this problem by using a penalty term for the number of parameters in the model. This term is bigger in BIC than in AIC.
+
+```
+BIC = n*log(residual sum of squares/n) + K*log(n)
+```
+
+where:
+
+* n: number of observations
+* K: number of parameters (including intercept)
+
+
 ## Function
 
 ```
+bic(y, y_pred, p)
 ```
 
----description here---
+**Parameters:**
+
+* **y**: array-like of shape = (n_samples) or (n_samples, n_outputs)
+  * True target variable(s)
+
+* **y_pred**: array-like of shape = (n_samples) or (n_samples, n_outputs)
+  * Fitted target variable(s) obtained from your regression model
+
+* **p**: int
+  * Number of predictive variable(s) used in the model
+
+**Return:**
+
+* bic_score: int
+  * BIC score of the model
 
 ## Example
 
----add code and show result (this is Rmd file)--- 
+```
+y <-  c(1,2,3,4)
+y_pred <- c(5,6,7,8)
+p <- 3
+bic(y, y_pred, p)
+
+```
 
 
 # **Mallow's C_p**
