@@ -76,17 +76,63 @@ aic(y, y_pred, p)
 
 
 # **Mallow's C_p**
+
+**Introduction**
+
+Mallow's C_p is named for Colin Lingwood Mallows. It is used to assess the fit of regression model, finding the best model involving a subset of predictive variables available for predicting some outcome.
+
+```
+C_p = (SSE_p/MSE) - (n - 2p)
+```
+
+where:
+
+- SSE_k: residual sum of squares for the subset model containing `p` explanatory
+variables counting the intercept.
+- MSE: mean squared error for the full model (model containing all `k` explanatory variables of interest)
+- n: number of observations
+- p: number of subset explanatory variables
+
 ## Function
 
 ```
+mallow(y, y_pred, y_sub, k, p)
 ```
 
----description here---
+**Parameters:**
 
-## Example
 
----add code and show result (this is Rmd file)--- 
+* **y**: vector of shape = (n_samples) or (n_samples, n_outputs)
+  * True target variable(s)
 
+* **y_pred**: vector of shape = (n_samples) or (n_samples, n_outputs)
+  * Fitted target variable(s) obtained from your regression model
+
+* **y_sub**: vector of shape = (n_samples) or (n_samples, n_outputs)
+  * Fitted target variable(s) obtained from your subset regression model
+
+* **k**: int
+  * Number of predictive variable(s) used in the model
+
+* **p**: int
+  * Number of predictive variable(s) used in the subset model
+
+**Return:**
+
+* mallow_score: int
+  * Mallow's C_p score of the subset model
+
+
+##Example
+
+```
+y <-  c(1,2,3,4)
+y_pred <- c(5,6,7,8)
+y_sub <- c(1,2,3,5)
+k <- 3
+p <-2
+mallow(y, y_pred, y_sub, k, p) 
+```
 
 # **Comparisons** 
 
