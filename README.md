@@ -2,7 +2,20 @@
 
 An R package that does model comparison between different regression models.
 
-## **Function Description**
+
+## Installation
+
+You can install regscoreR from github with:
+
+
+``` r
+# install.packages("devtools")
+devtools::install_github("UBC-MDS/regscoreR")
+```
+
+
+
+## **Function Description And Usage**
 
 
 ### AIC
@@ -41,6 +54,15 @@ aic(y, y_pred, p)
 * aic_score: int
   * AIC score of the model
 
+#### Usage
+```
+library(regscoreR)
+y <-  c(1,2,3,4)
+y_pred <- c(5,6,7,8)
+p <- 3
+aic(y, y_pred, p)
+```
+
 
 ### BIC
 
@@ -75,6 +97,19 @@ bic(y, y_pred, p)
 **Return:**
 * bic_score: int
   * BIC score of the model
+
+
+####Usage
+```
+library(regscoreR)
+y <-  c(1,2,3,4)
+y_pred <- c(5,6,7,8)
+p <- 3
+bic(y, y_pred, p)
+```
+  
+  
+
 
 ### Mallow's C_p
 
@@ -122,3 +157,22 @@ mallow(y, y_pred, y_sub, k, p)
 
 * mallow_score: int
   * Mallow's C_p score of the subset model
+
+####Usage
+```
+library(regscoreR)
+y <-  c(1,2,3,4)
+y_pred <- c(5,6,7,8)
+y_sub <- c(1,2,3,5)
+k <- 3
+p <-2
+mallow(y, y_pred, y_sub, k, p) 
+```
+
+## License
+[MIT](LICENSE)
+
+## Contributing
+This is an open source project. Please follow the guidelines below for contribution.
+  - Open an issue for any feedback and suggestions.
+  - For contributing to the project, please refer to [Contributing](CONTRIBUTING.md) for details.
