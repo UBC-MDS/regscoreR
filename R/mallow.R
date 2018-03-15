@@ -2,17 +2,13 @@
 #'
 #' @author Ruoqi XU
 #'
-#' @param
-#' y: array-like of shape = (n_samples) or (n_samples, n_outputs)
-#'    True target variable(s)
-#' y_pred: array-like of shape = (n_samples) or (n_samples, n_outputs)
+#' @param y array-like of shape = (n_samples) or (n_samples, n_outputs), True target variable(s)
+#' @param y_pred array-like of shape = (n_samples) or (n_samples, n_outputs)
 #'    Fitted target variable(s) obtained from your regression model
-#' y_pred: array-like of shape = (n_samples) or (n_samples, n_outputs)
-#'    Fitted target variable(s) obtained from your regression model
-#' y_sub: array-like of shape = (n_samples) or (n_samples, n_outputs)
+#' @param y_sub array-like of shape = (n_samples) or (n_samples, n_outputs)
 #'    Fitted target variable(s) obtained from your subset regression model
-#' k: (int,like 2L)Number of predictive variable(s) used in the model
-#' p: (int,like 2L)Number of predictive variable(s) used in the subset model
+#' @param k (int,like 2L)Number of predictive variable(s) used in the model
+#' @param p (int,like 2L)Number of predictive variable(s) used in the subset model
 #'
 #' @description Mallow's C_p is named for Colin Lingwood Mallows.
 #' It is used to assess the fit of regression model,
@@ -24,12 +20,15 @@
 #' @return mallow_score: float
 #'
 #' @examples
+#' library(regscoreR)
 #' y <-c(1,2,3,4)
 #' y_pred <- c(5,6,7,8)
 #' y_sub <- c(1,2,3,5)
 #' k <- 3L
 #' p <- 2L
-#' mallow(y, y_pred, y_sub, k, p)
+#' regscoreR::mallow(y, y_pred, y_sub, k, p)
+#'
+#' @export
 
 
 mallow <- function(y,y_pred,y_sub,k,p) {

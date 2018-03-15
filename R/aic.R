@@ -2,13 +2,11 @@
 #'
 #' @author Ha Dinh
 #'
-#' @function
-#' aic(y, y_pred, p)
+#' @usage aic(y, y_pred, p)
 #'
-#' @param
-#' y: True target variable(s) - array-like of shape = (n_samples) or (n_samples, n_outputs)
-#' y_pred: Fitted target variable(s) obtained from your regression model - array-like of shape = (n_samples) or (n_samples, n_outputs)
-#' p: Number of predictive variable(s) used in the model - int
+#' @param y True target variable(s) - array-like of shape = (n_samples) or (n_samples, n_outputs)
+#' @param y_pred Fitted target variable(s) obtained from your regression model - array-like of shape = (n_samples) or (n_samples, n_outputs)
+#' @param p Number of predictive variable(s) used in the model - int
 #'
 #' @description
 #' AIC stands for Akaike’s Information Criterion.
@@ -25,12 +23,14 @@
 #' @return double
 #'
 #' @examples
+#' library(regscoreR)
 #' y <-c(1,2,3,4)
 #' y_pred <- c(5,6,7,8)
 #' p <- 3
-#' aic(y, y_pred, p)
+#' regscoreR::aic(y, y_pred, p)
+#'
+#' @export
 
-library(tidyverse)
 
 aic <- function(y, y_pred, p) {
   # Check conditions:

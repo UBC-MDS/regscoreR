@@ -7,16 +7,17 @@
 mallow(y, y_pred, y_sub, k, p)
 }
 \arguments{
-\item{y:}{array-like of shape = (n_samples) or (n_samples, n_outputs)
-   True target variable(s)
-y_pred: array-like of shape = (n_samples) or (n_samples, n_outputs)
-   Fitted target variable(s) obtained from your regression model
-y_pred: array-like of shape = (n_samples) or (n_samples, n_outputs)
-   Fitted target variable(s) obtained from your regression model
-y_sub: array-like of shape = (n_samples) or (n_samples, n_outputs)
-   Fitted target variable(s) obtained from your subset regression model
-k: (int,like 2L)Number of predictive variable(s) used in the model
-p: (int,like 2L)Number of predictive variable(s) used in the subset model}
+\item{y}{array-like of shape = (n_samples) or (n_samples, n_outputs), True target variable(s)}
+
+\item{y_pred}{array-like of shape = (n_samples) or (n_samples, n_outputs)
+Fitted target variable(s) obtained from your regression model}
+
+\item{y_sub}{array-like of shape = (n_samples) or (n_samples, n_outputs)
+Fitted target variable(s) obtained from your subset regression model}
+
+\item{k}{(int,like 2L)Number of predictive variable(s) used in the model}
+
+\item{p}{(int,like 2L)Number of predictive variable(s) used in the subset model}
 }
 \value{
 mallow_score: float
@@ -31,12 +32,14 @@ for predicting some outcome.
 C_p = (SSE_p/MSE) - (n - 2p)
 }
 \examples{
+library(regscoreR)
 y <-c(1,2,3,4)
 y_pred <- c(5,6,7,8)
 y_sub <- c(1,2,3,5)
 k <- 3L
 p <- 2L
-mallow(y, y_pred, y_sub, k, p)
+regscoreR::mallow(y, y_pred, y_sub, k, p)
+
 }
 \author{
 Ruoqi XU
