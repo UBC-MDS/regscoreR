@@ -5,8 +5,3 @@ dist: trusty
 notifications:
     on_success: never
     on_failure: true
-sudo: required
-install:
-  - Rscript -e 'install.packages("tidyverse", dependencies=TRUE)'
-  - Rscript -e 'install.packages("tidyr", dependencies=TRUE)'
-  - Rscript -e 'install.packages("dplyr", dependencies=TRUE)'
