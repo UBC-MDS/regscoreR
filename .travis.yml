@@ -1,0 +1,12 @@
+language: r
+cache: packages
+warnings_are_errors: false
+dist: trusty
+notifications:
+    on_success: never
+    on_failure: true
+sudo: required
+install:
+  - Rscript -e 'install.packages("tidyverse")'
+  - Rscript -e 'install.packages("tidyr")'
+  - Rscript -e 'install.packages("dplyr")'

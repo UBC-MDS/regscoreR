@@ -9,3 +9,12 @@ In this release:
 * Updated function defintions since the first release.
   * Now, the user must provide the predicted values and the observed values of a model.
 * Added function descriptions.
+
+V3.0, 2018/03/11 -- Third release
+
+In this release:
+
+* Added function definitions.
+* Added few more unit tests for aic, bic and mallows.
+* Added vignette.
+* Added more documentation.
