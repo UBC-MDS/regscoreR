@@ -1,8 +1,8 @@
 Package: regscoreR
-Title: What the Package Does (one line, title case)
-Version: 0.0.0.9000
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Title: Regression Scores.
+Version: 1.0
+Authors: Simran Sethi (@simrnsethi), Ha Dinh (@hadinh1306), Ruoqi Xu (@rq1995)
+Description: An R package to compute scores for different regression models.
 License: MIT
 Encoding: UTF-8
 LazyData: true
