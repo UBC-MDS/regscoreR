@@ -102,7 +102,7 @@ bic(y, y_pred, p)
   * BIC score of the model
 
 
-####Usage
+#### Usage
 ```
 library(regscoreR)
 y <-  c(1,2,3,4)
@@ -161,7 +161,7 @@ mallow(y, y_pred, y_sub, k, p)
 * mallow_score: int
   * Mallow's C_p score of the subset model
 
-####Usage
+#### Usage
 ```
 library(regscoreR)
 y <-  c(1,2,3,4)
