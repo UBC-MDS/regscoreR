@@ -1,7 +1,9 @@
 Package: regscoreR
 Title: Regression Scores.
 Version: 1.0
-Authors: Simran Sethi (@simrnsethi), Ha Dinh (@hadinh1306), Ruoqi Xu (@rq1995)
+Authors@R: c(person("Simran", "Sethi", role = c("aut", "cre")),
+             person("Ha", "Dinh", role = c("aut", "cre")),
+             person("Ruoqi", "Xu", role = c("aut", "cre")))
 Description: An R package to compute scores for different regression models.
 License: MIT
 Encoding: UTF-8
