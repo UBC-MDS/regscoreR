@@ -1,5 +1,5 @@
 Package: regscoreR
-Title: Regression Scores.
+Title: Regression Scores
 Version: 1.0
 Authors@R: as.person(c(
             "Simran Sethi <simrannsethi@gmail.com> [aut]",
