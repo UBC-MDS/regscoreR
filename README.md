@@ -18,12 +18,10 @@ devtools::install_github("UBC-MDS/regscoreR")
 
 
 
-## **Function Description And Usage**
+## **Function Description**
 
 
 ### AIC
-
-#### Introduction
 
 AIC stands for Akaike’s Information Criterion. It estimates the quality of a model, relative to each of other models. The lower AIC score is, the better the model is. Therefore, a model with lowest AIC - in comparison to others, is chosen.
 
@@ -57,19 +55,8 @@ aic(y, y_pred, p)
 * aic_score: int
   * AIC score of the model
 
-#### Usage
-```
-library(regscoreR)
-y <-  c(1,2,3,4)
-y_pred <- c(5,6,7,8)
-p <- 3
-aic(y, y_pred, p)
-```
-
 
 ### BIC
-
-#### Introduction
 
 BIC stands for Bayesian Information Criterion. Like AIC, it also estimates the quality of a model. When fitting models, it is possible to increase model fitness by adding more parameters. Doing this may results in model overfit. Both AIC and BIC helps to resolve this problem by using a penalty term for the number of parameters in the model. This term is bigger in BIC than in AIC.
 
@@ -101,22 +88,11 @@ bic(y, y_pred, p)
 * bic_score: int
   * BIC score of the model
 
-
-#### Usage
-```
-library(regscoreR)
-y <-  c(1,2,3,4)
-y_pred <- c(5,6,7,8)
-p <- 3
-bic(y, y_pred, p)
-```
   
   
 
 
 ### Mallow's C_p
-
-#### Introduction
 
 Mallow's C_p is named for Colin Lingwood Mallows. It is used to assess the fit of regression model, finding the best model involving a subset of predictive variables available for predicting some outcome.
 
@@ -161,16 +137,31 @@ mallow(y, y_pred, y_sub, k, p)
 * mallow_score: int
   * Mallow's C_p score of the subset model
 
-#### Usage
+
+
+## Usage
+
 ```
-library(regscoreR)
-y <-  c(1,2,3,4)
-y_pred <- c(5,6,7,8)
-y_sub <- c(1,2,3,5)
-k <- 3L
-p <-2L
-mallow(y, y_pred, y_sub, k, p) 
+> library(regscoreR)
+> y <-  c(1,2,3,4)
+> y_pred <- c(5,6,7,8)
+> p <- 3
+>
+> aic(y, y_pred, p)
+[1] 17.09035
+>
+>
+> bic(y, y_pred, p)
+[1] 15.24924
+>
+>
+> y_sub <- c(1,2,3,5)
+> k <- 3L
+> p <-2L
+> mallow(y, y_pred, y_sub, k, p) 
+[1] 0.015625
 ```
+
 
 ## License
 [MIT](LICENSE)
