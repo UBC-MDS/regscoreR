@@ -65,13 +65,11 @@ bic <- function(y, y_pred, p){
 
   ################## calculate score ##################
 
-  # calculate residuals
+  # calculate residuals, calculate residual sum of square, and calculate BIC score
+  
   residual <- y_pred - y
-  # calculate residual sum of square
   RSS <- sum(residual^2)
-  # calculate BIC score
   Bic <- n * log(RSS/n) + p * log(n)
-
   return(Bic)
 
 }
