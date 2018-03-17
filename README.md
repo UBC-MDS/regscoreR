@@ -1,6 +1,6 @@
 # regscoreR
 
-[![Build Status](https://travis-ci.org/UBC-MDS/regscoreR.svg?branch=master)](https://travis-ci.org/UBC-MDS/regscoreR)
+[![Build Status](https://travis-ci.org/UBC-MDS/regscoreR.svg?branch=master)](https://travis-ci.org/UBC-MDS/regscoreR) [![codecov](https://codecov.io/gh/simrnsethi/regscoreR/branch/master/graphs/badge.svg)]
 
 
 An R package that does model comparison between different regression models.
