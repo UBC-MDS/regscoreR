@@ -5,3 +5,5 @@ dist: trusty
 notifications:
     on_success: never
     on_failure: true
+after_success:
+    - Rscript -e 'library(covr); codecov(type="all")'
