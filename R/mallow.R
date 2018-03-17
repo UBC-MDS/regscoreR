@@ -32,6 +32,7 @@
 
 
 mallow <- function(y,y_pred,y_sub,k,p) {
+  # Check conditions for function input
   if(p>k){
     stop("Error: The number of predictive variable(s) used in the sub model must less than in whole model")
   }
@@ -51,11 +52,13 @@ mallow <- function(y,y_pred,y_sub,k,p) {
     stop("Error: The number of predictive variable(s) used in the sub model must be positive")
   }
 
+
+  # Calculation
   tryCatch({
     SSE_p <- sum((y-y_sub)^2)
     MSE <- sum((y-y_pred)^2)/(length(y)-k)
-    mallow <- SSE_p/MSE-length(y)+2*p
-    return(mallow)}, error=function(e) {
+    mallowcp <- SSE_p/MSE-length(y)+2*p
+    return(mallowcp)}, error=function(e) {
       stop("Error: Something unknown went wrong in mallow")})
 }
 
