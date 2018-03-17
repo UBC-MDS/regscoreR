@@ -21,19 +21,19 @@ test_that("Error message occurs when input is not correct format",{
   expect_error(mallow(c(1,2,3,4), c(5,6,7,8),c(5,6,7,8), 3L, 2.3))
   #check if p is integer
 
-  expect_error(mallow(c(1,2,3,4), c(5,6,7,8),c(5,6,7,8), -1, 3L))
+  expect_error(mallow(c(1,2,3,4), c(5,6,7,8),c(5,6,7,8), -1L, -3L))
   #check if k is positive
 
   expect_error(mallow(c(1,2,3,4), c(5,6,7,8),c(5,6,7,8), 3.3, 2L))
   #check if k is integer
 
-  expect_error(mallow("a", c(1,2,3,4),c(5,6,7,8), 3L,2L))
+  expect_error(mallow(matrix(c(1,2,3,4),1,4), c(1,2,3,4),c(5,6,7,8), 3L,2L))
   #chect if y is a vector
 
-  expect_error(mallow(c(1,2,3,4), "a",c(5,6,7,8), 3L,2L))
+  expect_error(mallow(c(1,2,3,4), matrix(c(1,2,3,4),1,4),c(5,6,7,8), 3L,2L))
   #chect if y_pred is a vector
 
-  expect_error(mallow(c(1,2,3,4),c(5,6,7,8),"a", 3L,2L))
+  expect_error(mallow(c(1,2,3,4),c(5,6,7,8),matrix(c(1,2,3,4),1,4), 3L,2L))
   #chect if y_sub is a vector
 
   expect_error(mallow(c(1,2), c(1,2,3),c(1,2),3L, 2L))
