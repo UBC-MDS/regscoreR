@@ -34,31 +34,35 @@
 mallow <- function(y,y_pred,y_sub,k,p) {
   # Check conditions for function input
   if(p>k){
-    stop("Error: The number of predictive variable(s) used in the sub model must less than in whole model")
+    stop("Error: The number of predictive variable(s)
+         used in the sub model must less than in whole model")
   }
   if(length(y)!=length(y_pred) || length(y_pred)!=length(y_sub)){
-    stop("Error: The length of y, predict y and predict y in subset model must equal.")
+    stop("Error: The length of y, predict y and predict y in subset model
+         must equal.")
   }
   if(length(y)<2 || length(y_pred)<2 ||length(y_sub)<2){
-    stop("Error: The length of y, predict y and predict y in subset model must larger than 1")
+    stop("Error: The length of y, predict y and predict y in subset model
+         must larger than 1")
   }
   if(!is.integer(k) || !is.integer(p)){
-    stop("Error: The number of predictive variable(s) used in the sub model must be integer")
+    stop("Error: The number of predictive variable(s) used in the sub model
+         must be integer")
   }
   if(!is.vector(y) || !is.vector(y_pred) || !is.vector(y_sub)){
-    stop("Error: The observed y, predicted y, and predicted y in subset model must be vector")
+    stop("Error: The observed y, predicted y, and predicted y in subset model
+         must be vector")
   }
   if(k<=0 || p<=0){
-    stop("Error: The number of predictive variable(s) used in the sub model must be positive")
+    stop("Error: The number of predictive variable(s) used in the sub model
+         must be positive")
   }
 
 
   # Calculation
-  tryCatch({
     SSE_p <- sum((y-y_sub)^2)
     MSE <- sum((y-y_pred)^2)/(length(y)-k)
     mallowcp <- SSE_p/MSE-length(y)+2*p
-    return(mallowcp)}, error=function(e) {
-      stop("Error: Something unknown went wrong in mallow")})
+    return(mallowcp)
 }
 
