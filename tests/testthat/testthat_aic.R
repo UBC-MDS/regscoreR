@@ -42,8 +42,8 @@ test_that("aic() returns an aic score of a specific model, given observed y, pre
   expect_error(aic(c(1,2,3,4), c(5,6,7,8), 4.75), "Expect p to be integer")
 
   ## test if p is larger than 0, if not yield error
-  expect_error(aic(c(1,2,3,4), c(5,6,7,8), 0, "Expect p to be positive"))
-  expect_error(aic(c(1,2,3,4), c(5,6,7,8), -5, "Expect p to be positive"))
+  expect_error(aic(c(1,2,3,4), c(5,6,7,8), 0), "Expect p to be positive")
+  expect_error(aic(c(1,2,3,4), c(5,6,7,8), -5), "Expect p to be positive")
 })
 
 
