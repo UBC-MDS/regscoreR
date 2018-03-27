@@ -29,16 +29,16 @@ finding the best model involving a subset of predictive variables available
 for predicting some outcome.
 }
 \details{
-C_p = (SSE_p/MSE) - (n - 2p)
+C_p = (SSE_k/MSE) - (n - 2k)
 }
 \examples{
 library(regscoreR)
 y <-c(1,2,3,4)
 y_pred <- c(5,6,7,8)
 y_sub <- c(1,2,3,5)
-k <- 3L
-p <- 2L
-regscoreR::mallow(y, y_pred, y_sub, k, p)
+p <- 3L
+k <- 2L
+regscoreR::mallow(y, y_pred, y_sub, p, k)
 
 }
 \author{

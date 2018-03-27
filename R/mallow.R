@@ -24,16 +24,16 @@
 #' y <-c(1,2,3,4)
 #' y_pred <- c(5,6,7,8)
 #' y_sub <- c(1,2,3,5)
-#' k <- 3L
-#' p <- 2L
-#' regscoreR::mallow(y, y_pred, y_sub, k, p)
+#' p <- 3L
+#' k <- 2L
+#' regscoreR::mallow(y, y_pred, y_sub, p, k)
 #'
 #' @export
 
 
-mallow <- function(y,y_pred,y_sub,k,p) {
+mallow <- function(y,y_pred,y_sub,p,k) {
   # Check conditions for function input
-  if(p>k){
+  if(p<k){
     stop("Error: The number of predictive variable(s)
          used in the sub model must less than in whole model")
   }
@@ -60,9 +60,9 @@ mallow <- function(y,y_pred,y_sub,k,p) {
 
 
   # Calculation
-    SSE_p <- sum((y-y_sub)^2)
-    MSE <- sum((y-y_pred)^2)/(length(y)-k)
-    mallowcp <- SSE_p/MSE-length(y)+2*p
+    SSE_k <- sum((y-y_sub)^2)
+    MSE <- sum((y-y_pred)^2)/(length(y)-p)
+    mallowcp <- SSE_k/MSE-length(y)+2*k
     return(mallowcp)
 }
 

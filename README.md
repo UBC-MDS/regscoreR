@@ -154,8 +154,8 @@ mallow(y, y_pred, y_sub, p, k)
 >
 >
 > y_sub <- c(1,2,3,5)
-> k <- 3L
-> p <-2L
+> k <- 2L
+> p <- 3L
 > mallow(y, y_pred, y_sub, p, k)
 [1] 0.015625
 ```
