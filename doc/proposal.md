@@ -57,7 +57,7 @@ Here, we will describe functions in *Phase I*. We will also add a documentation 
 
 #### Introduction
 
-AIC stands for Akaikeâs Information Criterion. It estimates the quality of a model, relative to each of other models. The lower AIC score is, the better the model is. Therefore, a model with lowest AIC - in comparison to others, is chosen.
+AIC stands for Akaike's Information Criterion. It estimates the quality of a model, relative to each of other models. The lower AIC score is, the better the model is. Therefore, a model with lowest AIC - in comparison to others, is chosen.
 
 ```
 AIC = n*log(residual sum of squares/n) + 2K
